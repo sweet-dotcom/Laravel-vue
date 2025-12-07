@@ -1,101 +1,180 @@
 <template>
-    <Head title="Products & Services" />
+    <Head title="Cyberware - MIG-HELL" />
     <MainLayout>
-        <!-- Header -->
-        <div class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-16">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">
-                    Products & Services
+        <!-- Header with Background Image -->
+        <section class="relative pt-24 pb-16 overflow-hidden">
+            <!-- Background Image -->
+            <div class="absolute inset-0">
+                <img src="/images/phantom-keyart.png" alt="" class="w-full h-full object-cover object-top"/>
+                <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/80 to-black"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-[#fcee0a]/20 via-transparent to-[#00f0ff]/10"></div>
+            </div>
+            <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+                <div class="text-[#fcee0a] text-sm font-mono mb-2">/// CHROME.CATALOG</div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase mb-2" style="font-family: Arial Black, sans-serif;">
+                    CYBERWARE
                 </h1>
-                <p class="text-xl text-purple-100">
-                    Discover our comprehensive range of solutions tailored for your needs
-                </p>
+                <p class="text-gray-400">Premium implants for Night City's finest</p>
             </div>
-        </div>
+        </section>
 
-        <!-- Products Grid -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <div class="mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Products</h2>
-                <p class="text-lg text-gray-600">Premium quality products designed with excellence</p>
+        <!-- Featured Products - Clean Grid -->
+        <section class="relative py-8 bg-gradient-to-b from-black via-gray-900/50 to-black">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12">
+                <div class="h-px bg-gray-800 mb-8"></div>
+                
+                <!-- Featured Grid - Cyberware Display -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                    <!-- Featured Item 1 - SANDEVISTAN -->
+                    <a href="#products" class="group col-span-2 row-span-2 relative aspect-square overflow-hidden border border-gray-800 hover:border-[#fcee0a] transition-colors bg-gray-900">
+                        <img src="/images/sandevistan.png" alt="Sandevistan" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                        <!-- Scan lines effect -->
+                        <div class="absolute inset-0 opacity-10" style="background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(252,238,10,0.1) 2px, rgba(252,238,10,0.1) 4px);"></div>
+                        <div class="absolute top-3 left-3 px-2 py-1 bg-[#fcee0a] text-black text-xs font-bold">LEGENDARY</div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent">
+                            <div class="text-[#fcee0a] text-xs font-mono mb-1">/// REFLEX.BOOSTER</div>
+                            <h3 class="text-xl font-black text-white uppercase">SANDEVISTAN MK.5</h3>
+                            <p class="text-gray-400 text-sm mb-2">Time dilation system - Slow time by 90%</p>
+                            <p class="text-[#fcee0a] font-bold text-lg">€45,000</p>
+                        </div>
+                    </a>
+                    
+                    <!-- Featured Item 2 - KIROSHI OPTICS -->
+                    <a href="#products" class="group relative aspect-square overflow-hidden border border-gray-800 hover:border-cyan-400 transition-colors bg-gray-900">
+                        <img src="/images/kiroshi-optics.webp" alt="Kiroshi Optics" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                        <div class="absolute inset-0 opacity-10" style="background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,240,255,0.1) 2px, rgba(0,240,255,0.1) 4px);"></div>
+                        <div class="absolute top-2 left-2 px-2 py-1 bg-purple-500 text-white text-xs font-bold">EPIC</div>
+                        <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black to-transparent">
+                            <h3 class="text-sm font-bold text-white uppercase">KIROSHI OPTICS</h3>
+                            <p class="text-cyan-400 text-sm font-bold">€28,000</p>
+                        </div>
+                    </a>
+                    
+                    <!-- Featured Item 3 - GORILLA ARMS -->
+                    <a href="#products" class="group relative aspect-square overflow-hidden border border-gray-800 hover:border-red-500 transition-colors bg-gray-900">
+                        <img src="/images/gorilla-arms.png" alt="Gorilla Arms" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                        <div class="absolute inset-0 opacity-10" style="background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(254,16,56,0.1) 2px, rgba(254,16,56,0.1) 4px);"></div>
+                        <div class="absolute top-2 left-2 px-2 py-1 bg-[#fcee0a] text-black text-xs font-bold">LEGENDARY</div>
+                        <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black to-transparent">
+                            <h3 class="text-sm font-bold text-white uppercase">GORILLA ARMS</h3>
+                            <p class="text-red-400 text-sm font-bold">€35,000</p>
+                        </div>
+                    </a>
+                    
+                    <!-- Featured Item 4 - MANTIS BLADES -->
+                    <a href="#products" class="group relative aspect-square overflow-hidden border border-gray-800 hover:border-fuchsia-500 transition-colors bg-gray-900">
+                        <img src="/images/mantis-blades.webp" alt="Mantis Blades" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                        <div class="absolute inset-0 opacity-10" style="background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(217,70,239,0.1) 2px, rgba(217,70,239,0.1) 4px);"></div>
+                        <div class="absolute top-2 left-2 px-2 py-1 bg-[#fcee0a] text-black text-xs font-bold">LEGENDARY</div>
+                        <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black to-transparent">
+                            <h3 class="text-sm font-bold text-white uppercase">MANTIS BLADES</h3>
+                            <p class="text-fuchsia-400 text-sm font-bold">€52,000</p>
+                        </div>
+                    </a>
+                    
+                    <!-- Featured Item 5 - PROJECTILE LAUNCHER -->
+                    <a href="#products" class="group relative aspect-square overflow-hidden border border-gray-800 hover:border-orange-500 transition-colors bg-gray-900">
+                        <img src="/images/projectile-launcher.webp" alt="Projectile Launcher" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                        <div class="absolute inset-0 opacity-10" style="background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(251,146,60,0.1) 2px, rgba(251,146,60,0.1) 4px);"></div>
+                        <div class="absolute top-2 left-2 px-2 py-1 bg-purple-500 text-white text-xs font-bold">EPIC</div>
+                        <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black to-transparent">
+                            <h3 class="text-sm font-bold text-white uppercase">LAUNCHER</h3>
+                            <p class="text-orange-400 text-sm font-bold">€42,000</p>
+                        </div>
+                    </a>
+                </div>
             </div>
+        </section>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <!-- All Products Grid -->
+        <section id="products" class="relative py-12">
+            <!-- Background with image and yellow tint -->
+            <div class="absolute inset-0">
+                <img src="/images/rewards.jpg" alt="" class="w-full h-full object-cover opacity-10"/>
+                <div class="absolute inset-0 bg-gradient-to-br from-black via-[#fcee0a]/10 to-black"></div>
+            </div>
+            <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+                <div class="text-[#fcee0a] text-sm font-mono mb-4">/// ALL.CYBERWARE</div>
+                <div class="h-px bg-gray-800 mb-8"></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
                 <div 
                     v-for="product in products" 
                     :key="product.id"
-                    class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1"
+                    class="group relative bg-gray-900/80 border border-gray-800 hover:border-[#fcee0a] transition-all duration-300 overflow-hidden"
                 >
-                    <div :class="product.color" class="h-48 flex items-center justify-center">
-                        <svg class="w-20 h-20 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="product.icon" />
-                        </svg>
+                    <!-- Corner cut -->
+                    <div class="absolute top-0 right-0 w-8 h-8 clip-corner-sm z-10" :class="product.rarity === 'LEGENDARY' ? 'bg-[#fcee0a]' : product.rarity === 'EPIC' ? 'bg-purple-500' : 'bg-cyan-400'"></div>
+                    <!-- Rarity badge -->
+                    <div class="absolute top-2 left-2 px-2 py-1 text-xs font-bold border z-10" :class="product.rarity === 'LEGENDARY' ? 'bg-[#fcee0a]/20 border-[#fcee0a] text-[#fcee0a]' : product.rarity === 'EPIC' ? 'bg-purple-500/20 border-purple-500 text-purple-400' : 'bg-cyan-400/20 border-cyan-400 text-cyan-400'">
+                        {{ product.rarity }}
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">{{ product.name }}</h3>
-                        <p class="text-gray-600 mb-4">{{ product.description }}</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-2xl font-bold text-indigo-600">{{ product.price }}</span>
-                            <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
-                                Learn More
-                            </button>
+                    
+                    <!-- Product Image -->
+                    <div class="aspect-[4/3] bg-gray-900 flex items-center justify-center relative overflow-hidden">
+                        <img :src="product.image" :alt="product.name" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    </div>
+                    <div class="p-5 border-t border-gray-800">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-black text-white uppercase">{{ product.name }}</h3>
+                            <span class="font-bold" :class="product.rarity === 'LEGENDARY' ? 'text-[#fcee0a]' : product.rarity === 'EPIC' ? 'text-purple-400' : 'text-cyan-400'">{{ product.price }}</span>
                         </div>
+                        <p class="text-gray-500 text-sm mb-4">{{ product.description }}</p>
+                        <!-- Power bar -->
+                        <div class="flex gap-1 mb-4">
+                            <div class="h-1 flex-1" :class="product.rarity === 'LEGENDARY' ? 'bg-[#fcee0a]' : product.rarity === 'EPIC' ? 'bg-purple-500' : 'bg-cyan-400'"></div>
+                            <div class="h-1 flex-1" :class="product.rarity === 'LEGENDARY' ? 'bg-[#fcee0a]' : product.rarity === 'EPIC' ? 'bg-purple-500' : 'bg-cyan-400'"></div>
+                            <div class="h-1 flex-1" :class="product.rarity === 'LEGENDARY' || product.rarity === 'EPIC' ? (product.rarity === 'LEGENDARY' ? 'bg-[#fcee0a]' : 'bg-purple-500') : 'bg-gray-700'"></div>
+                            <div class="h-1 flex-1" :class="product.rarity === 'LEGENDARY' ? 'bg-[#fcee0a]' : 'bg-gray-700'"></div>
+                            <div class="h-1 flex-1 bg-gray-700"></div>
+                        </div>
+                        <button class="w-full bg-transparent border border-gray-700 text-white py-2 font-bold uppercase text-sm hover:bg-[#fcee0a] hover:text-black hover:border-[#fcee0a] transition-all">
+                            ACQUIRE
+                        </button>
                     </div>
                 </div>
             </div>
 
             <!-- Services Section -->
-            <div class="mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Services</h2>
-                <p class="text-lg text-gray-600">Professional services to help your business grow</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="h-px bg-gray-800 my-12"></div>
+            <div class="text-[#fcee0a] text-sm font-mono mb-6">/// OUR.SERVICES</div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
                 <div 
                     v-for="service in services" 
                     :key="service.id"
-                    class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition"
+                    class="bg-gray-900/50 border border-gray-800 hover:border-cyan-400 p-5 transition-colors"
                 >
-                    <div class="flex items-start">
-                        <div :class="service.iconBg" class="w-12 h-12 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                            <svg class="w-6 h-6" :class="service.iconColor" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="service.icon" />
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold mb-2">{{ service.name }}</h3>
-                            <p class="text-gray-600 mb-4">{{ service.description }}</p>
-                            <ul class="space-y-2">
-                                <li v-for="feature in service.features" :key="feature" class="flex items-center text-gray-700">
-                                    <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    {{ feature }}
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 uppercase">{{ service.name }}</h3>
+                    <p class="text-gray-500 text-sm mb-3">{{ service.description }}</p>
+                    <ul class="space-y-1">
+                        <li v-for="feature in service.features" :key="feature" class="text-cyan-400 text-sm">
+                            → {{ feature }}
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
-
-        <!-- CTA Section -->
-        <div class="bg-gray-100 py-16">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">
-                    Need a Custom Solution?
-                </h2>
-                <p class="text-xl text-gray-600 mb-8">
-                    Contact us to discuss your specific requirements
-                </p>
-                <Link 
-                    href="/contact" 
-                    class="inline-block bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition"
-                >
-                    Get a Quote
-                </Link>
             </div>
-        </div>
+
+            <!-- CTA Section -->
+            <div class="bg-[#fcee0a] py-12">
+                <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-black text-black uppercase">NEED CUSTOM CHROME?</h2>
+                        <p class="text-black/70">Contact our ripperdoc for personalized upgrades</p>
+                    </div>
+                    <Link href="/contact" class="bg-black text-[#fcee0a] px-8 py-3 font-bold uppercase hover:bg-gray-900 transition-colors">
+                        GET IN TOUCH
+                    </Link>
+                </div>
+            </div>
+        </section>
     </MainLayout>
 </template>
 
@@ -106,109 +185,153 @@ import MainLayout from '@/layouts/MainLayout.vue';
 const products = [
     {
         id: 1,
-        name: 'Web Application',
-        description: 'Custom web applications built with modern technologies and best practices.',
-        price: '$2,999',
-        color: 'bg-gradient-to-br from-blue-500 to-blue-600',
-        icon: 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9'
+        name: 'SANDEVISTAN MK.5',
+        description: 'Legendary reflex booster. Slow time and move like lightning through combat zones.',
+        price: '€45,000',
+        rarity: 'LEGENDARY',
+        image: '/images/sandevistan.png'
     },
     {
         id: 2,
-        name: 'Mobile App Development',
-        description: 'Native and cross-platform mobile applications for iOS and Android.',
-        price: '$4,999',
-        color: 'bg-gradient-to-br from-purple-500 to-purple-600',
-        icon: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z'
+        name: 'KIROSHI OPTICS V3',
+        description: 'Military-grade cybereyes with thermal, night vision and target analysis.',
+        price: '€28,000',
+        rarity: 'EPIC',
+        image: '/images/kiroshi-optics.webp'
     },
     {
         id: 3,
-        name: 'E-Commerce Platform',
-        description: 'Complete e-commerce solutions with payment integration and inventory management.',
-        price: '$5,999',
-        color: 'bg-gradient-to-br from-green-500 to-green-600',
-        icon: 'M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z'
+        name: 'GORILLA ARMS',
+        description: 'Hydraulic-powered cyberlimbs. Rip doors off and crush enemies with raw strength.',
+        price: '€35,000',
+        rarity: 'LEGENDARY',
+        image: '/images/gorilla-arms.png'
     },
     {
         id: 4,
-        name: 'CMS Solution',
-        description: 'Content management systems for easy website administration and updates.',
-        price: '$3,499',
-        color: 'bg-gradient-to-br from-yellow-500 to-orange-500',
-        icon: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10'
+        name: 'MANTIS BLADES',
+        description: 'Retractable arm blades. Slice through enemies with surgical precision.',
+        price: '€52,000',
+        rarity: 'LEGENDARY',
+        image: '/images/mantis-blades.webp'
     },
     {
         id: 5,
-        name: 'API Development',
-        description: 'RESTful and GraphQL APIs for seamless integration with third-party services.',
-        price: '$2,499',
-        color: 'bg-gradient-to-br from-red-500 to-pink-500',
-        icon: 'M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z'
+        name: 'PROJECTILE LAUNCHER',
+        description: 'Arm-mounted explosive launcher. Rain devastation from a distance.',
+        price: '€42,000',
+        rarity: 'EPIC',
+        image: '/images/projectile-launcher.webp'
     },
     {
         id: 6,
-        name: 'Cloud Solutions',
-        description: 'Scalable cloud infrastructure and deployment solutions for your applications.',
-        price: '$1,999',
-        color: 'bg-gradient-to-br from-indigo-500 to-purple-500',
-        icon: 'M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z'
+        name: 'KIROSHI OPTICS MK.2',
+        description: 'Entry-level cybereyes with basic zoom and low-light vision.',
+        price: '€18,000',
+        rarity: 'RARE',
+        image: '/images/kiroshi-optics.webp'
+    },
+    {
+        id: 7,
+        name: 'SANDEVISTAN HELIX',
+        description: 'Budget reflex booster. Perfect for first-time chrome users.',
+        price: '€38,000',
+        rarity: 'LEGENDARY',
+        image: '/images/sandevistan.png'
+    },
+    {
+        id: 8,
+        name: 'MANTIS BLADES X',
+        description: 'Enhanced cutting power with thermal edge coating.',
+        price: '€32,000',
+        rarity: 'EPIC',
+        image: '/images/mantis-blades.webp'
+    },
+    {
+        id: 9,
+        name: 'MISSILE LAUNCHER',
+        description: 'Heavy ordnance arm mod. For when you need serious firepower.',
+        price: '€25,000',
+        rarity: 'EPIC',
+        image: '/images/projectile-launcher.webp'
+    },
+    {
+        id: 10,
+        name: 'KIROSHI TACTICAL',
+        description: 'Combat-focused optics with threat analysis and zoom.',
+        price: '€15,000',
+        rarity: 'RARE',
+        image: '/images/kiroshi-optics.webp'
+    },
+    {
+        id: 11,
+        name: 'SANDEVISTAN LITE',
+        description: 'Compact time dilation unit. Less power, more battery life.',
+        price: '€22,000',
+        rarity: 'RARE',
+        image: '/images/sandevistan.png'
+    },
+    {
+        id: 12,
+        name: 'PROJECTILE LAUNCHER MK.2',
+        description: 'Upgraded launcher with smart targeting system.',
+        price: '€30,000',
+        rarity: 'EPIC',
+        image: '/images/projectile-launcher.webp'
     }
 ];
 
 const services = [
     {
         id: 1,
-        name: 'Web Development',
-        description: 'Full-stack web development services using cutting-edge technologies.',
-        icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
-        iconBg: 'bg-blue-100',
-        iconColor: 'text-blue-600',
+        name: 'BRAINDANCE EDITING',
+        description: 'Professional BD production and neural recording services.',
+        icon: 'M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z',
+        iconBg: 'bg-gradient-to-br from-yellow-500 to-yellow-600',
         features: [
-            'Custom Web Applications',
-            'Responsive Design',
-            'Performance Optimization',
-            'SEO Integration'
+            'Full sensory capture',
+            'Memory extraction',
+            'Commercial licensing',
+            'Encrypted storage'
         ]
     },
     {
         id: 2,
-        name: 'Consulting Services',
-        description: 'Expert consulting to help you make the right technology decisions.',
-        icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z',
-        iconBg: 'bg-purple-100',
-        iconColor: 'text-purple-600',
+        name: 'NETRUNNER TRAINING',
+        description: 'Learn advanced breach protocols and quickhack deployment.',
+        icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253',
+        iconBg: 'bg-gradient-to-br from-cyan-500 to-cyan-600',
         features: [
-            'Technology Stack Selection',
-            'Architecture Planning',
-            'Best Practices Review',
-            'Performance Audits'
+            'ICE breaking techniques',
+            'Daemon programming',
+            'Network infiltration',
+            'Trace evasion'
         ]
     },
     {
         id: 3,
-        name: 'Maintenance & Support',
-        description: '24/7 support and maintenance to keep your applications running smoothly.',
-        icon: 'M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4',
-        iconBg: 'bg-green-100',
-        iconColor: 'text-green-600',
+        name: 'CHROME MAINTENANCE',
+        description: '24/7 ripperdoc support for all your cyberware needs.',
+        icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z',
+        iconBg: 'bg-gradient-to-br from-fuchsia-500 to-fuchsia-600',
         features: [
-            'Bug Fixes & Updates',
-            'Security Patches',
-            'Performance Monitoring',
-            'Technical Support'
+            'Firmware updates',
+            'Damage repair',
+            'Performance tuning',
+            'Emergency extraction'
         ]
     },
     {
         id: 4,
-        name: 'DevOps Solutions',
-        description: 'Streamline your deployment process with modern DevOps practices.',
-        icon: 'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15',
-        iconBg: 'bg-orange-100',
-        iconColor: 'text-orange-600',
+        name: 'BLACK ICE DEFENSE',
+        description: 'Military-grade cybersecurity and counter-intrusion systems.',
+        icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+        iconBg: 'bg-gradient-to-br from-green-500 to-green-600',
         features: [
-            'CI/CD Pipeline Setup',
-            'Container Orchestration',
-            'Infrastructure as Code',
-            'Monitoring & Logging'
+            'Real-time threat detection',
+            'Neural firewall',
+            'Data encryption',
+            'Trace blocking'
         ]
     }
 ];

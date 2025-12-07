@@ -1,3 +1,912 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Official Cyberpunk 2077 Design System - Based on cyberpunk.net */
+@layer base {
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        background-color: #000;
+        color: #fff;
+        cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath fill='%2300f0ff' d='M0 0 L0 16 L4 12 L7 19 L9 18 L6 11 L12 11 Z'/%3E%3C/svg%3E") 0 0, auto;
+    }
+    
+    /* Pointer cursor for interactive elements */
+    a, button, [role="button"], input[type="submit"], .cursor-pointer {
+        cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath fill='%2300f0ff' d='M0 0 L0 16 L4 12 L7 19 L9 18 L6 11 L12 11 Z'/%3E%3C/svg%3E") 0 0, pointer;
+    }
+    
+    /* Headings - Bold system fonts (mimicking BlenderProBold) */
+    h1, h2, h3, h4, h5, h6 {
+        font-family: Arial Black, 'Arial Bold', 'Helvetica Neue', Arial, sans-serif;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+    }
+}
+
+@layer utilities {
+    .clip-corner {
+        clip-path: polygon(
+            0 0,
+            calc(100% - 20px) 0,
+            100% 20px,
+            100% 100%,
+            0 100%
+        );
+    }
+    
+    .clip-corner-sm {
+        clip-path: polygon(
+            0 0,
+            calc(100% - 10px) 0,
+            100% 10px,
+            100% 100%,
+            0 100%
+        );
+    }
+}
+
+/* ========== CYBERPUNK.NET AUTHENTIC DOT PATTERNS ========== */
+
+/* ========== CYBERPUNK.NET AUTHENTIC PATTERNS ========== */
+
+/* Top dot pattern - like cyberpunk.net header */
+.cp-dots-top {
+    position: relative;
+}
+
+.cp-dots-top::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-image: radial-gradient(circle, #fcee0a 2px, transparent 2px);
+    background-size: 12px 12px;
+    background-position: 20px 20px;
+    background-repeat: repeat-x;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Bottom dot pattern - DISABLED to prevent overlap */
+/* Use .cp-dots-bottom-visible class if needed */
+.cp-dots-bottom-visible::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background-image: radial-gradient(circle, #00f0ff 1.5px, transparent 1.5px);
+    background-size: 12px 12px;
+    background-position: 20px 0;
+    background-repeat: repeat-x;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.5;
+}
+
+/* Bottom gradient fade - like cyberpunk.net */
+.cp-fade-bottom::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 302px;
+    background: linear-gradient(180deg, transparent, #000);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* ========== CYBERPUNK.NET BUTTONS ========== */
+
+/* Yellow outline button */
+.cp-btn {
+    align-items: center;
+    display: inline-flex;
+    height: 48px;
+    justify-content: center;
+    min-width: 232px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: Arial Black, sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.cp-btn--yellow {
+    background: transparent;
+    border: 2px solid #fcee0a;
+    color: #fcee0a;
+    clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+}
+
+.cp-btn--yellow:hover {
+    background: #fcee0a;
+    color: #000;
+}
+
+.cp-btn--cyan {
+    background: transparent;
+    border: 2px solid #00f0ff;
+    color: #00f0ff;
+    clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+}
+
+.cp-btn--cyan:hover {
+    background: #00f0ff;
+    color: #000;
+}
+
+.cp-btn--cyan-fill {
+    background: #00f0ff;
+    border: none;
+    color: #000;
+    clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+}
+
+.cp-btn--cyan-fill:hover {
+    background: #fcee0a;
+}
+
+.cp-btn--red {
+    background: transparent;
+    border: 2px solid #fe1038;
+    color: #fe1038;
+    clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+}
+
+.cp-btn--red:hover {
+    background: #fe1038;
+    color: #fff;
+}
+
+/* Black fill button for yellow backgrounds */
+.cp-btn--black {
+    background: #000;
+    border: none;
+    color: #fcee0a;
+    clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+    transition: all 0.2s ease;
+}
+
+.cp-btn--black:hover {
+    background: #1a1a1a;
+    color: #00f0ff;
+}
+
+/* ========== YELLOW INTRO SECTION (like cyberpunk.net) ========== */
+.intro {
+    background: #fcee0a;
+    padding: 88px 40px;
+    position: relative;
+}
+
+/* Separator bars at top/bottom of intro */
+.cp-separator-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 28px;
+    background-image: 
+        linear-gradient(90deg, #000 28px, #fcee0a 0, #fcee0a calc(50% - 14px), #000 calc(50% - 14px), #000 calc(50% + 14px), #fcee0a calc(50% + 14px), #fcee0a calc(100% - 28px), #000 calc(100% - 28px)),
+        linear-gradient(90deg, #000 2px, #fcee0a 0, #fcee0a calc(50% - 1px), #000 calc(50% - 1px), #000 calc(50% + 1px), #fcee0a calc(50% + 1px), #fcee0a calc(100% - 2px), #000 calc(100% - 2px));
+    background-repeat: no-repeat;
+    background-size: 100% 2px, 100% 28px;
+    pointer-events: none;
+}
+
+.cp-separator-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 28px;
+    background-image: 
+        linear-gradient(90deg, #000 28px, #fcee0a 0, #fcee0a calc(50% - 14px), #000 calc(50% - 14px), #000 calc(50% + 14px), #fcee0a calc(50% + 14px), #fcee0a calc(100% - 28px), #000 calc(100% - 28px)),
+        linear-gradient(90deg, #000 2px, #fcee0a 0, #fcee0a calc(50% - 1px), #000 calc(50% - 1px), #000 calc(50% + 1px), #fcee0a calc(50% + 1px), #fcee0a calc(100% - 2px), #000 calc(100% - 2px));
+    background-repeat: no-repeat;
+    background-size: 100% 2px, 100% 28px;
+    pointer-events: none;
+}
+
+.intro-yellow {
+    background: #fcee0a;
+    padding: 88px 40px 0;
+}
+
+.intro-yellow::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+    margin-bottom: 32px;
+}
+
+/* Separator lines - cyberpunk.net style */
+.cp-separator {
+    background-image: 
+        linear-gradient(90deg, #000 28px, #fcee0a 0, #fcee0a calc(50% - 14px), #000 calc(50% - 14px), #000 calc(50% + 14px), #fcee0a calc(50% + 14px), #fcee0a calc(100% - 28px), #000 calc(100% - 28px)),
+        linear-gradient(90deg, #000 2px, #fcee0a 0, #fcee0a calc(50% - 1px), #000 calc(50% - 1px), #000 calc(50% + 1px), #fcee0a calc(50% + 1px), #fcee0a calc(100% - 2px), #000 calc(100% - 2px));
+    background-repeat: no-repeat;
+    background-size: 100% 2px, 100% 28px;
+    height: 28px;
+    max-width: 47.29vw;
+    margin: 0 auto 40px;
+}
+
+@media (max-width: 1199px) {
+    .cp-separator {
+        max-width: 100%;
+    }
+}
+
+/* News section dots - cyberpunk.net style */
+.news-section {
+    background-image: radial-gradient(circle, #fcee0a 2px, transparent 2px);
+    background-position: 20px calc(100% - 20px);
+    background-size: 12px 12px;
+    background-repeat: repeat-x;
+    padding: 0 40px 48px;
+    position: relative;
+}
+
+.news-section::before {
+    content: '';
+    display: block;
+    height: 2px;
+    background: rgba(203, 203, 203, 0.3);
+    margin-bottom: 12px;
+}
+
+/* ========== NEWS GRID - Authentic cyberpunk.net Layout ========== */
+.news-grid {
+    display: grid;
+    grid-template-columns: 48% 6% 19% 2% 19% 4%;
+    grid-template-rows: repeat(2, minmax(160px, auto));
+    gap: 16px 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 1199px) {
+    .news-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+    .news-tile {
+        width: calc(50% - 12px);
+    }
+    .news-tile--featured {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .news-grid {
+        flex-direction: column;
+    }
+    .news-tile {
+        width: 100%;
+    }
+}
+
+.news-tile {
+    color: #fff;
+}
+
+.news-tile a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Featured tile spans 2 rows */
+.news-tile--featured {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+}
+
+/* Position other tiles */
+.news-tile:nth-child(2) {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.news-tile:nth-child(3) {
+    grid-column: 5;
+    grid-row: 1;
+}
+
+.news-tile:nth-child(4) {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.news-tile:nth-child(5) {
+    grid-column: 5;
+    grid-row: 2;
+}
+
+/* News tile decoration */
+.news-decor {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 100%;
+    padding-bottom: 4px;
+    display: flex;
+}
+
+.news-decor-cyan {
+    color: #00f0ff;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.news-decor-date {
+    color: #cbcbcb;
+    flex: 1;
+    text-align: right;
+}
+
+/* News tile featured border */
+.news-featured {
+    position: relative;
+}
+
+.news-featured::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 6px solid #00f0ff;
+    pointer-events: none;
+}
+
+/* Bottom after-line for news tiles */
+.news-tile::after {
+    content: '';
+    display: block;
+    width: 2.5vw;
+    height: 2.1875vw;
+    border-bottom: 2px solid #fff;
+    margin-top: 12px;
+}
+
+/* ========== MENU STYLING - CYBERPUNK.NET ========== */
+
+/* Menu clip path like official site */
+.cp-menu {
+    clip-path: polygon(16px 0, 100% 0, 100% 30px, calc(100% - 18px) 48px, calc(100% - 18px) 100%, 0 100%, 0 16px);
+    position: relative;
+}
+
+.cp-menu::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(8px);
+    z-index: -1;
+}
+
+.cp-menu-list {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #fcee0a;
+    display: flex;
+    align-items: center;
+    height: 48px;
+    padding-left: 24px;
+    position: relative;
+}
+
+/* Yellow corner triangle */
+.cp-menu-list::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top: 18px solid #fcee0a;
+    border-right: 18px solid transparent;
+}
+
+/* Menu item styling */
+.cp-menu-item {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding: 0 25px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.cp-menu-item:hover {
+    background: #fcee0a;
+    color: #000;
+}
+
+.cp-menu-item--buy {
+    background: #fcee0a;
+    color: #000;
+    font-weight: 700;
+    min-width: 168px;
+    justify-content: center;
+}
+
+/* ========== SUBTLE CYBERPUNK EFFECTS ========== */
+
+/* Subtle Neon Glow on Hover */
+.neon-hover:hover {
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+    transition: box-shadow 0.3s ease;
+}
+
+.neon-hover-yellow:hover {
+    box-shadow: 0 0 15px rgba(252, 238, 10, 0.4);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Subtle scan line overlay - very light, only visible on dark backgrounds */
+.scanlines {
+    position: relative;
+}
+
+.scanlines::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(0, 0, 0, 0.015) 3px,
+        rgba(0, 0, 0, 0.015) 6px
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Cyber Grid Background - Enhanced with animation */
+.cyber-grid {
+    background-image: 
+        linear-gradient(rgba(0, 240, 255, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.15) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: grid-pulse 4s ease-in-out infinite;
+}
+
+@keyframes grid-pulse {
+    0%, 100% { 
+        background-size: 50px 50px;
+        opacity: 1;
+    }
+    50% { 
+        background-size: 52px 52px;
+        opacity: 0.7;
+    }
+}
+
+/* Enhanced Cyber Grid with perspective */
+.cyber-grid-3d {
+    background: 
+        linear-gradient(rgba(0, 240, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    transform: perspective(500px) rotateX(60deg);
+    transform-origin: center top;
+    animation: grid-scroll 20s linear infinite;
+}
+
+@keyframes grid-scroll {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 200px; }
+}
+
+/* ========== PHANTOM LIBERTY STYLE BACKGROUNDS ========== */
+
+/* Subtle noise/grain texture overlay */
+.noise-overlay {
+    position: relative;
+}
+
+.noise-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+/* Diagonal scan lines - Phantom Liberty style */
+.pl-scanlines {
+    position: relative;
+}
+
+.pl-scanlines::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 240, 255, 0.02) 2px,
+        rgba(0, 240, 255, 0.02) 4px
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Vignette effect */
+.vignette {
+    position: relative;
+}
+
+.vignette::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.4) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Glowing edge lines */
+.glow-edges {
+    position: relative;
+}
+
+.glow-edges::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.5), transparent);
+}
+
+.glow-edges::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(252, 238, 10, 0.5), transparent);
+}
+
+/* Phantom Liberty dot pattern - subtle and clean */
+.pl-dots {
+    background-image: radial-gradient(circle, rgba(0, 240, 255, 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+/* Redacted/classified stripes */
+.classified-stripes {
+    position: relative;
+}
+
+.classified-stripes::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 100px,
+        rgba(254, 16, 56, 0.03) 100px,
+        rgba(254, 16, 56, 0.03) 102px
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Card lift on hover */
+.card-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 240, 255, 0.2);
+}
+
+/* Button shine effect */
+.btn-shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-shine:hover::before {
+    left: 100%;
+}
+
+/* Subtle text glow */
+.text-glow-cyan {
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+.text-glow-yellow {
+    text-shadow: 0 0 10px rgba(252, 238, 10, 0.5);
+}
+
+/* Loading bar animation */
+.cyber-loading {
+    position: relative;
+    height: 2px;
+    background: rgba(0, 240, 255, 0.1);
+    overflow: hidden;
+}
+
+.cyber-loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 30%;
+    background: linear-gradient(90deg, transparent, #00f0ff, transparent);
+    animation: loading-bar 3s ease-in-out infinite;
+}
+
+@keyframes loading-bar {
+    0% { left: -30%; }
+    100% { left: 100%; }
+}
+
+/* ========== A) SUBTLE GLITCH TEXT - Only on hover ========== */
+.glitch-hover {
+    position: relative;
+}
+
+.glitch-hover:hover {
+    animation: subtle-glitch 0.3s ease;
+}
+
+@keyframes subtle-glitch {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-1px, 1px); }
+    40% { transform: translate(1px, -1px); }
+    60% { transform: translate(-1px, 0); }
+    80% { transform: translate(1px, 1px); }
+}
+
+/* ========== B) NEON PULSE - Subtle breathing glow ========== */
+.neon-pulse {
+    animation: neon-breathe 3s ease-in-out infinite;
+}
+
+@keyframes neon-breathe {
+    0%, 100% { box-shadow: 0 0 5px rgba(0, 240, 255, 0.3); }
+    50% { box-shadow: 0 0 15px rgba(0, 240, 255, 0.5), 0 0 25px rgba(0, 240, 255, 0.2); }
+}
+
+.neon-pulse-yellow {
+    animation: neon-breathe-yellow 3s ease-in-out infinite;
+}
+
+@keyframes neon-breathe-yellow {
+    0%, 100% { box-shadow: 0 0 5px rgba(252, 238, 10, 0.3); }
+    50% { box-shadow: 0 0 15px rgba(252, 238, 10, 0.5), 0 0 25px rgba(252, 238, 10, 0.2); }
+}
+
+/* ========== C) SCAN LINES - Enhanced but still subtle ========== */
+.scanlines-hero {
+    position: relative;
+}
+
+.scanlines-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.03) 2px,
+        rgba(0, 0, 0, 0.03) 4px
+    );
+    pointer-events: none;
+    z-index: 5;
+    animation: scanline-scroll 8s linear infinite;
+}
+
+@keyframes scanline-scroll {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100px; }
+}
+
+/* ========== D) TYPING EFFECT - CSS only ========== */
+.typing-effect {
+    overflow: hidden;
+    border-right: 2px solid #00f0ff;
+    white-space: nowrap;
+    animation: typing-cursor 0.8s step-end infinite;
+    display: inline-block;
+}
+
+@keyframes typing-cursor {
+    0%, 100% { border-color: #00f0ff; }
+    50% { border-color: transparent; }
+}
+
+/* ========== E) FLICKERING NEON - Very subtle ========== */
+.flicker-subtle {
+    animation: subtle-flicker 4s ease-in-out infinite;
+}
+
+@keyframes subtle-flicker {
+    0%, 100% { opacity: 1; }
+    92% { opacity: 1; }
+    93% { opacity: 0.8; }
+    94% { opacity: 1; }
+    96% { opacity: 0.9; }
+    97% { opacity: 1; }
+}
+
+/* ========== F) PARALLAX HELPER ========== */
+.parallax-slow {
+    will-change: transform;
+    transition: transform 0.1s ease-out;
+}
+
+/* ========== G) UNIQUE MIG-HELL EFFECTS ========== */
+
+/* Cyber grid background */
+.cyber-grid {
+    background-image: 
+        linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+/* Data stream effect */
+.data-stream::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(180deg, 
+        transparent 0%,
+        rgba(0, 240, 255, 0.02) 50%,
+        transparent 100%
+    );
+    animation: data-flow 3s ease-in-out infinite;
+}
+
+@keyframes data-flow {
+    0%, 100% { transform: translateY(-100%); opacity: 0; }
+    50% { transform: translateY(0); opacity: 1; }
+}
+
+/* Corner bracket decoration */
+.corner-brackets {
+    position: relative;
+}
+
+.corner-brackets::before,
+.corner-brackets::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-color: #fcee0a;
+    border-style: solid;
+}
+
+.corner-brackets::before {
+    top: 0;
+    left: 0;
+    border-width: 2px 0 0 2px;
+}
+
+.corner-brackets::after {
+    bottom: 0;
+    right: 0;
+    border-width: 0 2px 2px 0;
+}
+
+/* Rarity tier colors */
+.rarity-legendary { color: #fcee0a; border-color: #fcee0a; }
+.rarity-epic { color: #a855f7; border-color: #a855f7; }
+.rarity-rare { color: #00f0ff; border-color: #00f0ff; }
+.rarity-common { color: #9ca3af; border-color: #9ca3af; }
+
+/* Power bar effect */
+.power-bar {
+    height: 4px;
+    background: linear-gradient(90deg, #fcee0a 0%, #fcee0a var(--power, 80%), #333 var(--power, 80%));
+}
+
+/* Holographic shimmer */
+.holo-shimmer {
+    position: relative;
+    overflow: hidden;
+}
+
+.holo-shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 200%; }
+}
+
+/* Tech border */
+.tech-border {
+    border: 1px solid transparent;
+    background: linear-gradient(#000, #000) padding-box,
+                linear-gradient(135deg, #fcee0a 0%, #00f0ff 50%, #fcee0a 100%) border-box;
+}
+
+/* Pulse ring effect */
+.pulse-ring {
+    position: relative;
+}
+
+.pulse-ring::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border: 2px solid currentColor;
+    opacity: 0;
+    animation: pulse-ring 2s ease-out infinite;
+}
+
+@keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(1.1); opacity: 0; }
+}
