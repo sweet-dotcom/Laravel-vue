@@ -1,0 +1,11 @@
+* text=auto
+
+# Force Blade templates to be detected as PHP
+*.blade.php linguist-language=PHP
+
+# Detect Vue files properly
+*.vue linguist-language=Vue
+
+# Mark generated/vendor files as such
+public/build/** linguist-generated
+storage/** linguist-generated
